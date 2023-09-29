@@ -97,8 +97,49 @@ Ahora estás listo para probar la sencilla aplicación con una línea de comando
 
 <details><summary>Respuesta</summary>
 <p><blockquote>
+Ejecutando el comando `bundle exec rackup --port 3000` nos muestra que nuestra aplicacion esta corriendo en el puerto 3000 :
+
+![Alt text](image-4.png)
+
+si ingresamos a la ruta http://localhost:3000/ nos mostrara el mensaje Hello World: 
+
+![Alt text](image-5.png)
 
 </p></blockquote></details>
+
+
+## Pregunta
+¿Qué sucede si intentas visitar una URL no raíz cómo https://localhost:3000/hello y por qué? (la raíz de tu URL variará)
+<details><summary>Respuesta</summary>
+<p><blockquote>
+Al acceder a la ruta http://localhost:3000/hello nos mostrara un error ya que no existe esa ruta en nuestra aplicacion , por lo que nos mostrara el siguiente mensaje:
+
+![Alt text](image-6.png)
+
+</p></blockquote></details>
+
+## Modifica la aplicación
+Modifica app.rb para que en lugar de "Hello world" imprime "Goodbye world". Guarda tus cambios en app.rb e intenta actualizar la pestaña de tu navegador donde se ejecuta la aplicación.
+Ahora regresa a la ventana del shell donde ejecutaste rackup y presione Ctrl-C para detener Rack. Luego escribe bundle exec rackup --port 3000 para desarrollo local y una vez que se esté ejecutando, regresa a la pestaña de tu navegador con tu aplicación y actualiza la página. Esta vez debería funcionar.
+
+<details><summary>Respuesta</summary>
+<p><blockquote>
+Primero cancelamos la ejecucion de la aplicacion con el comando `Ctrl-C`  :
+
+![Alt text](image-8.png)
+
+
+modificamos el archivo app.rb para que nos muestre el mensaje Goodbye world y ejectuamos el comando `bundle exec rackup --port 3000` para volver a ejecutar la aplicacion :
+
+![Alt text](image-9.png)
+
+</p></blockquote></details>
+
+Lo que esto te muestra es que, si modificas tu aplicación mientras se está ejecutando, debes reiniciar Rack para que "veas" esos cambios. Dado que reiniciarlo manualmente es tedioso, usaremos la gema de rerun, que reinicia Rack automáticamente cuando ve cambios en los archivos en el directorio de la aplicación. (Rails hace esto de forma predeterminada durante el desarrollo, como veremos, pero Sinatra no).
+Probablemente ya estés pensando:  Si la aplicación depende de esta gema adicional, debemos agregarla al Gemfile y ejecutar el paquete para asegurarnos de que esté realmente presente”. Buen pensamiento. Pero también se te puede ocurrir que esta gema en particular no sería necesaria en un entorno de producción: sólo la necesitamos como herramienta durante el desarrollo. Afortunadamente, hay una manera de decirle a Bundler que algunas gemas sólo son necesarias en determinados entornos. Agrega lo siguiente al Gemfile (no importa dónde):
+
+
+
 
 
 
