@@ -162,6 +162,27 @@ y si vemos en el navegador el mensaje cambio :
 
 </p></blockquote></details>
 
+## Implementar en Heroku
+Heroku es una plataforma como servicio (PaaS) en la nube donde podemos implementar las aplicaciones Sinatra (y posteriores Rails). Si aún no tiene una cuenta, regístrese en http://www.heroku.com. Necesitarás su nombre de usuario y contraseña para el siguiente paso.
+Instala Heroku CLI siguiendo las instrucciones. 
+Inicia sesión en tu cuenta Heroku escribiendo el comando: heroku login -i en la terminal. Esto te conectará con tu cuenta Heroku.
+
+<details><summary>Respuesta</summary>
+<p><blockquote>
+
+ejecutamos el comando y nos pedira el correo y la contraseña de nuestra cuenta de heroku : 
+
+![Alt text](image-15.png)
+
+heroku create :
+
+![Alt text](image-16.png)
+
+Procfile:
+![Alt text](image-17.png)
+</p></blockquote></details>
+
+
 
 
 
