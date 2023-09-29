@@ -137,6 +137,30 @@ modificamos el archivo app.rb para que nos muestre el mensaje Goodbye world y ej
 
 Lo que esto te muestra es que, si modificas tu aplicación mientras se está ejecutando, debes reiniciar Rack para que "veas" esos cambios. Dado que reiniciarlo manualmente es tedioso, usaremos la gema de rerun, que reinicia Rack automáticamente cuando ve cambios en los archivos en el directorio de la aplicación. (Rails hace esto de forma predeterminada durante el desarrollo, como veremos, pero Sinatra no).
 Probablemente ya estés pensando:  Si la aplicación depende de esta gema adicional, debemos agregarla al Gemfile y ejecutar el paquete para asegurarnos de que esté realmente presente”. Buen pensamiento. Pero también se te puede ocurrir que esta gema en particular no sería necesaria en un entorno de producción: sólo la necesitamos como herramienta durante el desarrollo. Afortunadamente, hay una manera de decirle a Bundler que algunas gemas sólo son necesarias en determinados entornos. Agrega lo siguiente al Gemfile (no importa dónde):
+<details><summary>Respuesta</summary>
+<p><blockquote>
+Agregamos la gema rerun al archivo Gemfile :
+
+![Alt text](image-10.png)
+
+al tener esto , no sera necesario reiniciar el servidor cada vez que hagamos un cambio en nuestra aplicacion , ya que esta gema se encargara de reiniciar el servidor automaticamente.
+Ejecutamos el comando `bundle install` para instalar la gema rerun para luego ejecutar el comando `bundle exec rerun rackup --port 3000` para ejecutar la aplicacion con la gema rerun :
+
+![Alt text](image-11.png)
+
+El puerto estaria de esta forma : 
+
+![Alt text](image-12.png)
+
+Ahora si cambiamos el mensaje del html a Hello worl ! y guardamos , el servidor detectara el cambio y reiniciara automaticamente :
+
+![Alt text](image-13.png)
+
+y si vemos en el navegador el mensaje cambio :
+
+![Alt text](image-14.png)
+
+</p></blockquote></details>
 
 
 
