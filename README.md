@@ -155,8 +155,8 @@ Para hacer uso de la gema `rerun` seguimos estos pasos:
 2. Luego, ejecutamos la aplicación con la gema "rerun" utilizando el comando bundle exec rerun rackup --port 3000, como se ilustra en la imagen.
 ![Alt text](image-11.png)
 
-    Con esto, el puerto estará configurado de la siguiente manera:  
-    
+3. Con esto, el puerto estará configurado de la siguiente manera:  
+
     ![Alt text](image-12.png)
 
 **Detección Automática de Cambios y Reinicio Automático del Servidor**
