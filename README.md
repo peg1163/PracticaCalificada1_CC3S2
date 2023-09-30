@@ -70,9 +70,13 @@ Al ejecutar el comando "bundle", Bundler examina las gemas especificadas en el a
 </p></blockquote></details>
 
 ## Crea una aplicación SaaS sencilla con Sinatra
-Como se ha explicado las aplicaciones SaaS requieren un servidor web para recibir solicitudes HTTP del mundo exterior y un servidor de aplicaciones que "conecte" la lógica de su aplicación al servidor web. Para el desarrollo, usaremos webrick, un servidor web muy simple basado en Ruby que sería inapropiado para producción pero que está bien para el desarrollo. Tanto en desarrollo como en producción, utilizaremos el servidor de aplicaciones en rack basado en Ruby, que admite aplicaciones Ruby escritas en varios frameworks, incluidos Sinatra y Rails.
-Como se ha explicado una aplicación SaaS esencialmente reconoce y responde a las solicitudes HTTP correspondientes a las rutas de la aplicación (recuerda que una ruta consta de un método HTTP como GET o POST más un URI). Sinatra proporciona una abreviatura ligera para coincidir una ruta con el código de aplicación que se ejecutará cuando llegue una solicitud de uso de esa ruta desde el servidor web.
-Crea un archivo en tu proyecto llamado app.rb que contenga lo siguiente:
+
+En el desarrollo de aplicaciones SaaS, comenzaremos con Webrick para pruebas y luego usaremos Rack en producción. Sinatra, un marco ligero, nos permitirá definir cómo nuestra aplicación manejará solicitudes HTTP.
+
+**Paso 1: Creación del Archivo de la Aplicación**
+
+En un archivo llamado app.rb, escribimos el siguiente código:
+
 ```ruby	
 require 'sinatra' 
     class MyApp < Sinatra::Base 
@@ -81,123 +85,142 @@ require 'sinatra'
     end 
 end
 ```
-El método get lo proporciona la clase Sinatra::Base, de la cual hereda la clase MyApp. Sinatra::Base está disponible porque cargamos la biblioteca Sinatra en la línea 1.
-Como puedes ver en el ejemplo simple anterior, Sinatra te permite escribir funciones que coinciden con una ruta HTTP entrante, en este caso GET '/' (la URL raíz), se devolverá a la presentación un documento HTML muy simple que contiene la cadena Hello world como resultado de la solicitud.
-Para ejecutar la aplicación, tenemos que iniciar el servidor de aplicaciones y el servidor de nivel de presentación (web). El servidor de aplicaciones en rack está controlado por un archivo config.ru, que ahora debe crear y agregar al control de versiones, y que contiene lo siguiente:
+Este código responde con "Hello World" cuando accedemos a la URL proporcionada.
+
+**Paso 2: Configuración del Archivo config.ru**
+
+Creamos un archivo llamado config.ru con el siguiente contenido:
+
+
 ```ruby
 require './app' 
 run MyApp
 ```
-La primera línea le dice a Rack que la aplicación se encuentra en el archivo app.rb, que creó anteriormente para contener el código de tu aplicación. Tenemos que indicar explícitamente que el archivo de la aplicación está ubicado en el directorio actual (.) porque normalmente require busca solo en directorios estándar del sistema para encontrar gemas.
-Ahora estás listo para probar la sencilla aplicación con una línea de comando:
+Esto le dice a Rack que nuestra aplicación se encuentra en app.rb.
+
+**Paso 3: Ejecución de la Aplicación**
+
+Finalmente, ejecutamos la aplicación con el siguiente comando:
 
     bundle exec rackup --port 3000
 
-<details><summary>Respuesta</summary>
-<p><blockquote>
-Ejecutando el comando `bundle exec rackup --port 3000` nos muestra que nuestra aplicacion esta corriendo en el puerto 3000 :
+Después de haber completado los pasos anteriores, podremos verificar que nuestra aplicación está en funcionamiento en el puerto 3000, como se muestra en la siguiente imagen: 
 
 ![Alt text](image-4.png)
 
-si ingresamos a la ruta http://localhost:3000/ nos mostrara el mensaje Hello World: 
+Como se menciono en el paso 2, al acceder a la ruta http://localhost:3000/ veremos el mensaje Hello World, como se muestra a continuación: 
 
 ![Alt text](image-5.png)
 
-</p></blockquote></details>
-
-
 ## Pregunta
-¿Qué sucede si intentas visitar una URL no raíz cómo https://localhost:3000/hello y por qué? (la raíz de tu URL variará)
+ 
+**¿Qué sucede si intentas visitar una URL no raíz cómo https://localhost:3000/hello y por qué?**
 <details><summary>Respuesta</summary>
 <p><blockquote>
-Al acceder a la ruta http://localhost:3000/hello nos mostrara un error ya que no existe esa ruta en nuestra aplicacion , por lo que nos mostrara el siguiente mensaje:
+Si intentamos acceder a la ruta http://localhost:3000/hello, se generará un error, ya que dicha ruta no está definida en nuestra aplicación. Esto dará como resultado que muestre el siguiente mensaje de error:
 
 ![Alt text](image-6.png)
 
 </p></blockquote></details>
 
 ## Modifica la aplicación
-Modifica app.rb para que en lugar de "Hello world" imprime "Goodbye world". Guarda tus cambios en app.rb e intenta actualizar la pestaña de tu navegador donde se ejecuta la aplicación.
-Ahora regresa a la ventana del shell donde ejecutaste rackup y presione Ctrl-C para detener Rack. Luego escribe bundle exec rackup --port 3000 para desarrollo local y una vez que se esté ejecutando, regresa a la pestaña de tu navegador con tu aplicación y actualiza la página. Esta vez debería funcionar.
+Para cambiar la salida de nuestra aplicación de "Hello world" a "Goodbye world", seguimos los siguientes pasos:
+ 
+1. Detuvimos la aplicación actual mediante el comando `Ctrl-C`, como se muestra en la siguiente imagen:
 
-<details><summary>Respuesta</summary>
-<p><blockquote>
-Primero cancelamos la ejecucion de la aplicacion con el comando `Ctrl-C`  :
-
-![Alt text](image-8.png)
+    ![Alt text](image-8.png)
 
 
-modificamos el archivo app.rb para que nos muestre el mensaje Goodbye world y ejectuamos el comando `bundle exec rackup --port 3000` para volver a ejecutar la aplicacion :
+2. Luego, modificamos el archivo app.rb para que la aplicación muestre el mensaje "Goodbye world".
+3. Después, reiniciamos la aplicación utilizando el comando bundle exec `rackup --port 3000` para el desarrollo local.
 
-![Alt text](image-9.png)
+    ![Alt text](image-9.png)
 
-</p></blockquote></details>
 
-Lo que esto te muestra es que, si modificas tu aplicación mientras se está ejecutando, debes reiniciar Rack para que "veas" esos cambios. Dado que reiniciarlo manualmente es tedioso, usaremos la gema de rerun, que reinicia Rack automáticamente cuando ve cambios en los archivos en el directorio de la aplicación. (Rails hace esto de forma predeterminada durante el desarrollo, como veremos, pero Sinatra no).
-Probablemente ya estés pensando:  Si la aplicación depende de esta gema adicional, debemos agregarla al Gemfile y ejecutar el paquete para asegurarnos de que esté realmente presente”. Buen pensamiento. Pero también se te puede ocurrir que esta gema en particular no sería necesaria en un entorno de producción: sólo la necesitamos como herramienta durante el desarrollo. Afortunadamente, hay una manera de decirle a Bundler que algunas gemas sólo son necesarias en determinados entornos. Agrega lo siguiente al Gemfile (no importa dónde):
-<details><summary>Respuesta</summary>
-<p><blockquote>
-Agregamos la gema rerun al archivo Gemfile :
+Esto ilustra que al realizar modificaciones en nuestra aplicación mientras esta se encuentra en ejecución, debemos reiniciar Rack para que los cambios surtan efecto. Para automatizar este proceso, podemos emplear la gema `rerun`, que reinicia automáticamente Rack cuando detecta cambios en los archivos del directorio de la aplicación.
+
+Continuando, añadimos la gema `rerun` a nuestro archivo Gemfile, como se muestra en la siguiente imagen:
 
 ![Alt text](image-10.png)
 
-al tener esto , no sera necesario reiniciar el servidor cada vez que hagamos un cambio en nuestra aplicacion , ya que esta gema se encargara de reiniciar el servidor automaticamente.
-Ejecutamos el comando `bundle install` para instalar la gema rerun para luego ejecutar el comando `bundle exec rerun rackup --port 3000` para ejecutar la aplicacion con la gema rerun :
+Con esto, ya no será necesario reiniciar manualmente el servidor cada vez que realicemos cambios en nuestra aplicación. La gema `rerun` se encargará de reiniciar automáticamente el servidor por nosotros.
 
+**Instalación de la Gema "rerun" y Ejecución de la Aplicación con ella**
+
+Para hacer uso de la gema `rerun` seguimos estos pasos:
+
+1. Ejecutamos el comando bundle install para instalar la gema `rerun`.
+
+
+2. Luego, ejecutamos la aplicación con la gema "rerun" utilizando el comando bundle exec rerun rackup --port 3000, como se ilustra en la imagen.
 ![Alt text](image-11.png)
 
-El puerto estaria de esta forma : 
+    Con esto, el puerto estará configurado de la siguiente manera:
+    ![Alt text](image-12.png)
 
-![Alt text](image-12.png)
+**Detección Automática de Cambios y Reinicio Automático del Servidor**
 
-Ahora si cambiamos el mensaje del html a Hello worl ! y guardamos , el servidor detectara el cambio y reiniciara automaticamente :
+Ahora, si modificamos el mensaje HTML en nuestra aplicación a "Hello worl !" y guardamos los cambios, el servidor detectará automáticamente la modificación y se reiniciará por sí mismo, como se muestra aquí:
 
 ![Alt text](image-13.png)
 
-y si vemos en el navegador el mensaje cambio :
+Si observamos el navegador, veremos que el mensaje también ha cambiado:
 
 ![Alt text](image-14.png)
 
-</p></blockquote></details>
-
 ## Implementar en Heroku
-Heroku es una plataforma como servicio (PaaS) en la nube donde podemos implementar las aplicaciones Sinatra (y posteriores Rails). Si aún no tiene una cuenta, regístrese en http://www.heroku.com. Necesitarás su nombre de usuario y contraseña para el siguiente paso.
-Instala Heroku CLI siguiendo las instrucciones. 
-Inicia sesión en tu cuenta Heroku escribiendo el comando: heroku login -i en la terminal. Esto te conectará con tu cuenta Heroku.
+Heroku es una plataforma como servicio (PaaS) en la nube que nos permite implementar nuestras aplicaciones Sinatra (y más adelante, Rails). Procedemos a crear una cuenta en http://www.heroku.com para poder llevar a cabo esta implementación.
 
-<details><summary>Respuesta</summary>
-<p><blockquote>
-
-ejecutamos el comando y nos pedira el correo y la contraseña de nuestra cuenta de heroku : 
+**Paso 1: Instalamos Heroku CLI**  
+**Paso 2: Iniciamos Sesión en nuestra Cuenta Heroku**
+Ejecutamos el comando  `heroku login -i ` en nuestra terminal. Esto nos solicita ingresar el correo y la contraseña de nuestra cuenta de Heroku.
 
 ![Alt text](image-15.png)
 
-heroku create :
+**Paso 3: Creamos una Nueva Aplicación Heroku**
+
+Utilizamos el comando `heroku create` para crear una nueva aplicación en Heroku.
 
 ![Alt text](image-16.png)
 
-Procfile:
-![Alt text](image-17.png)
+**Paso 4: Creamos un Archivo Procfile**
 
-Luego subimos el repositorio a heroku con el comando `git push heroku master` :
+Creamos un archivo llamado "Procfile" en nuestro proyecto con las instrucciones necesarias para ejecutar nuestra aplicación en Heroku. Este archivo define el proceso web que Heroku debe ejecutar.
+
+**Paso 5: Subimos nuestro Repositorio a Heroku**
+Usamos el comando `git push heroku master` para cargar nuestro repositorio en Heroku.
 
 ![Alt text](image-18.png)
 
-Viendolo desde la pagina de heroku :
+**Paso 6: Verificamos la Implementación en Heroku**
+
+Podemos verificar la ejecución de nuestra aplicación desde la página de Heroku.
+
+
 
 ![Alt text](image-19.png)
 
+Si todo se ejecuta correctamente, vemos nuestra aplicación en funcionamiento en la plataforma Heroku.
+
 ![Alt text](image-20.png)
+ 
+Este proceso nos permite llevar nuestra aplicación Sinatra a la nube y hacerla accesible en línea a través de Heroku.
 
-Vemos que se ejecuta correctamente .
-</p></blockquote></details>
+# Parte 1: Wordguesser
+Con todos estos pasos en mente, procedamos a clonar este repositorio y a trabajar en el juego de adivinanza de palabras, conocido como Wordguesser.
 
-## Parte 1: Wordguesser
-Con toda esta maquinaria en mente, clona este repositorio y trabajemos el juego de adivinar palabras (Wordguesser).
+Para llevar a cabo esto, clonamos el repositorio de Wordguesser utilizando el siguiente comando:
 
-    Clonaremos el repositorio de wordguesser con el repositorio e ingresaremos a este 
+    git clone https://github.com/saasbook/hw-sinatra-saas-wordguesser
+
+Luego, ingresamos al repositorio clonado para continuar con nuestro trabajo.
+
+    cd hw-sinatra-saas-wordguesser 
+
+A continuación, se presenta una vista de lo que realizamos:
 
 ![Alt text](image-21.png)
+ 
 
 
 ## Desarrollo de Wordguesser usando TDD y Guard
