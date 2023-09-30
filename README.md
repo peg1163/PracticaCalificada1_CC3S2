@@ -50,17 +50,17 @@ Para mantener un sistema de control de versiones para nuestra aplicación, utili
 **¿Cuál es la diferencia entre el propósito y el contenido de Gemfile y Gemfile.lock?**
 
 
-El archivo *Gemfile* que creamos es donde tendremos todas las gemas que necesitamos para la aplicacion.
+El archivo *Gemfile* que creamos alberga una lista de todas las gemas necesarias para nuestra aplicación.
 
 ![Alt text](image-3.png)
 
-Mientras que *Gemfile.lock* guarda las versiones de estas y tambien las versiones de otras dependencias que necesitan las gemas que tenemos en Gemfile.
+Por otro lado, *Gemfile.lock* registra no solo las versiones de estas gemas, sino también las versiones de otras dependencias requeridas por las gemas especificadas en Gemfile.
 
 ![Alt text](image-2.png)
 
 **¿Qué archivo se necesita para reproducir completamente las gemas del entorno de desarrollo en el entorno de producción?**
 
-Para reproducir completamente las gemas del entorno de desarrollo en el entorno de producción, se necesita el archivo Gemfile.lock. Este archivo proporciona información detallada sobre las versiones exactas de las gemas y sus dependencias que deben instalarse para que la aplicación funcione correctamente en producción.
+Para reproducir completamente las gemas del entorno de desarrollo en el entorno de producción, se necesita el archivo *Gemfile.lock*. Este archivo proporciona información detallada sobre las versiones exactas de las gemas y sus dependencias que deben instalarse para que la aplicación funcione correctamente en producción.
 
 
 **Después de ejecutar el bundle, ¿Por qué aparecen gemas en Gemfile.lock que no estaban en Gemfile?**
