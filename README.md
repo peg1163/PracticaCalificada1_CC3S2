@@ -1,8 +1,8 @@
 # Primera Práctica Calificada 
 Integrantes:  
-- Acuña
-- Canales
-- Zuñiga Alejandra
+- Acuña Napan Jaime Gonzalo
+- Canales Yarin, Edward Alexander
+- Zuñiga Chicaña, Alejandra Aztirma  
 
 # Creacion de aplicaciones SaaS
 
