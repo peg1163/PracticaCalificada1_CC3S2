@@ -1,5 +1,6 @@
 # Creacion de aplicacionde SaaS
-Objetivo: comprender los pasos necesarios para crear, versionar e implementar una aplicación SaaS, incluido el seguimiento de las librerías de las que depende para que sus entornos de producción y desarrollo sean lo más similares posible.
+Objetivo: 
+Comprender los pasos necesarios para crear, versionar e implementar una aplicación SaaS, incluido el seguimiento de las librerías de las que depende para que sus entornos de producción y desarrollo sean lo más similares posible.
 
 Qué harás: crear una aplicación sencilla de "Hello world" utilizando el framework Sinatra, versionarla correctamente e implementarla en Heroku.
 
@@ -161,6 +162,27 @@ y si vemos en el navegador el mensaje cambio :
 ![Alt text](image-14.png)
 
 </p></blockquote></details>
+
+## Implementar en Heroku
+Heroku es una plataforma como servicio (PaaS) en la nube donde podemos implementar las aplicaciones Sinatra (y posteriores Rails). Si aún no tiene una cuenta, regístrese en http://www.heroku.com. Necesitarás su nombre de usuario y contraseña para el siguiente paso.
+Instala Heroku CLI siguiendo las instrucciones. 
+Inicia sesión en tu cuenta Heroku escribiendo el comando: heroku login -i en la terminal. Esto te conectará con tu cuenta Heroku.
+
+<details><summary>Respuesta</summary>
+<p><blockquote>
+
+ejecutamos el comando y nos pedira el correo y la contraseña de nuestra cuenta de heroku : 
+
+![Alt text](image-15.png)
+
+heroku create :
+
+![Alt text](image-16.png)
+
+Procfile:
+![Alt text](image-17.png)
+</p></blockquote></details>
+
 
 
 
