@@ -1,5 +1,6 @@
 # Creacion de aplicacionde SaaS
-Objetivo: comprender los pasos necesarios para crear, versionar e implementar una aplicación SaaS, incluido el seguimiento de las librerías de las que depende para que sus entornos de producción y desarrollo sean lo más similares posible.
+Objetivo: 
+Comprender los pasos necesarios para crear, versionar e implementar una aplicación SaaS, incluido el seguimiento de las librerías de las que depende para que sus entornos de producción y desarrollo sean lo más similares posible.
 
 Qué harás: crear una aplicación sencilla de "Hello world" utilizando el framework Sinatra, versionarla correctamente e implementarla en Heroku.
 
