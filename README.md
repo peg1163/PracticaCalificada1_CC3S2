@@ -1,26 +1,37 @@
-# Creacion de aplicacionde SaaS
-Objetivo: 
-Comprender los pasos necesarios para crear, versionar e implementar una aplicación SaaS, incluido el seguimiento de las librerías de las que depende para que sus entornos de producción y desarrollo sean lo más similares posible.
+# Primera Práctica Calificada 
+Integrantes:  
+- Acuña
+- Canales
+- Zuñiga Alejandra
 
-Qué harás: crear una aplicación sencilla de "Hello world" utilizando el framework Sinatra, versionarla correctamente e implementarla en Heroku.
+# Creacion de aplicaciones SaaS
+
+**Objetivo:**  
+El objetivo de este trabajo es comprender y documentar los pasos esenciales para crear, versionar e implementar una aplicación de Software como Servicio (SaaS). Además, se abordará la importancia de mantener la consistencia en los entornos de producción y desarrollo, asegurando que las bibliotecas y dependencias se gestionen adecuadamente.
+
+**Tareas a Realizar:**  
+En este proyecto, se llevarán a cabo las siguientes tareas:  
+- Creación de una Aplicación "Hello World": Se desarrollará una aplicación de ejemplo utilizando el framework Sinatra.
+- Versionamiento Correcto: Se aplicarán prácticas de versionamiento adecuadas para garantizar un control.efectivo del código fuente de la aplicación. Esto incluye el uso de sistemas de control de versiones como Git.
+
+- Implementación en Heroku: La aplicación desarrollada se implementará en la plataforma de alojamiento en la nube Heroku. 
+
 
 ## Creación y versionado de una aplicación SaaS sencilla
 
-Comencemos con los siguientes pasos:
+Para llevar a cabo esto realizamos los siguientes pasos:
 
-- Crea un nuevo directorio vacío para contener tu nueva aplicación y usa git init en ese directorio para comenzar a versionarlo con Git.
+- Se creo un nuevo directorio vacío para contener la nueva aplicación y usamos git init en ese directorio para comenzar a versionarlo con Git.
 
-- En ese directorio, crea un nuevo archivo llamado Gemfile (las mayúsculas son importantes) con el siguiente contenido. Este archivo será una parte permanente de su aplicación y viajará con su aplicación a donde quiera que vaya: source 'https://rubygems.org'
+- En ese directorio, se creo  un nuevo archivo llamado Gemfile con el siguiente contenido.  
+ ```ruby
+ source 'https://rubygems.org'
+ ruby '2.6.6'  
+ gem 'sinatra','>= 2.0.1'
+ ```
+             
 
-ruby '2.6.6'
 
-gem 'sinatra', '>= 2.0.1'
-
-La primera línea dice que el lugar preferido para descargar las gemas necesarias es https://rubygems.org, que es donde la comunidad Ruby registra las gemas "listas para producción".
-
-La segunda línea especifica qué versión del intérprete de lenguaje Ruby se requiere. Si omitiéramos esta línea, Bundler no intentaría verificar qué versión de Ruby está disponible; Existen diferencias sutiles entre las versiones y no todas las gemas funcionan con todas las versiones, por lo que es mejor especificar esto.
-
-La última línea dice que necesitamos la versión 2.0.1 o posterior de Sinatra. En algunos casos no necesitamos especificar qué versión de una gema queremos. En este caso lo especificamos porque nos basamos en algunas características que están ausentes en versiones anteriores de Sinatra
 
 <details><summary>Respuesta</summary>
 <p><blockquote>
