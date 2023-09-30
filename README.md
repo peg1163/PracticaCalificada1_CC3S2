@@ -21,45 +21,27 @@ En este proyecto, se llevarán a cabo las siguientes tareas:
 
 Para llevar a cabo esto realizamos los siguientes pasos:
 
-- Se creo un nuevo directorio vacío para contener la nueva aplicación y usamos git init en ese directorio para comenzar a versionarlo con Git.
+- Creamos un nuevo directorio vacío destinado a alojar nuestra nueva aplicación y utilizamos el comando git init en ese directorio para iniciar el control de versiones mediante Git.
 
-- En ese directorio, se creo  un nuevo archivo llamado Gemfile con el siguiente contenido.  
+- Dentro de este directorio, creamos un archivo nuevo llamado Gemfile con el siguiente contenido: 
+
  ```ruby
  source 'https://rubygems.org'
  ruby '2.6.6'  
  gem 'sinatra','>= 2.0.1'
  ```
              
-
-
-
-<details><summary>Respuesta</summary>
-<p><blockquote>
-Crearemos un directorio llamado produccion y dentro de este directorio crearemos un archivo llamado Gemfile con el siguiente contenido:
-
-```ruby
-
-source 'https://rubygems.org'
-
-ruby '2.6.6'
-
-gem 'sinatra', '>= 2.0.1'
-```	
 Este archivo reconocera las versiones de las gemas (bibliotecas) que utilizaremos en nuestra aplicacion.
-ahora para la instalacion ejecutaremos el comando `bundle install`
 
-Al ejecutar este comando nos instala las gemas que necesitamos para nuestra aplicacion.
+Luego, procedemos a la instalación de estas gemas ejecutando el comando `bundle install`. Esta acción instala automáticamente las gemas necesarias para el funcionamiento de nuestra aplicación.
 
 ![Alt text](image.png)
 
-Para tener un sistema de versiones de nuestra aplicacion usaremos git , como ya tenemos el gemfile configurado ,controlaremos las 
-versiones con git 
+Para mantener un sistema de control de versiones para nuestra aplicación, utilizamos Git. Gracias a la configuración previa del Gemfile, podemos controlar las versiones de manera efectiva a través de Git.
 
 ![Alt text](image-1.png)
 
-</p></blockquote>
-</details>
-
+ 
 
 ## Preguntas 
 ¿Cuál es la diferencia entre el propósito y el contenido de Gemfile y Gemfile.lock? ¿Qué archivo se necesita para reproducir completamente las gemas del entorno de desarrollo en el entorno de producción?
