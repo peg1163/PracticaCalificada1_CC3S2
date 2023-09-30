@@ -43,27 +43,30 @@ Para mantener un sistema de control de versiones para nuestra aplicación, utili
 
  
 
-## Preguntas 
-¿Cuál es la diferencia entre el propósito y el contenido de Gemfile y Gemfile.lock? ¿Qué archivo se necesita para reproducir completamente las gemas del entorno de desarrollo en el entorno de producción?
-Después de ejecutar el bundle, ¿por qué aparecen gemas en Gemfile.lock que no estaban en Gemfile?
-
-<details><summary>Respuesta</summary>
+### Preguntas 
+<details><summary>Respuestas</summary>
 <p><blockquote>
-El archivo Gemfile que creamos es donde tendremos todas las gemas que necesitamos para la aplicacion ,mientras que Gemfile.lock guarda las versiones de estas y tambien las versiones de otras dependencias que necesitan las gemas que tenemos en Gemfile.
-Por lo que asi tendriamos nuestros archivos :       
+
+**¿Cuál es la diferencia entre el propósito y el contenido de Gemfile y Gemfile.lock?**
 
 
-# Gemfile:
+El archivo *Gemfile* que creamos es donde tendremos todas las gemas que necesitamos para la aplicacion.
 
 ![Alt text](image-3.png)
-# Gemfile.lock:
+
+Mientras que *Gemfile.lock* guarda las versiones de estas y tambien las versiones de otras dependencias que necesitan las gemas que tenemos en Gemfile.
+
 ![Alt text](image-2.png)
 
+**¿Qué archivo se necesita para reproducir completamente las gemas del entorno de desarrollo en el entorno de producción?**
 
-Al ejecutar el comando , Bundle busca informacion de las gemas que se encuantran en el archivo Gemfile , por ejemplo sinatra , al instalar sinatra , bundle ve que esta dependencia requiere de otras por las que de manera recursiva instala todas las dependencias necesarias .
+Para reproducir completamente las gemas del entorno de desarrollo en el entorno de producción, se necesita el archivo Gemfile.lock. Este archivo proporciona información detallada sobre las versiones exactas de las gemas y sus dependencias que deben instalarse para que la aplicación funcione correctamente en producción.
 
-</p></blockquote>
-</details>
+
+**Después de ejecutar el bundle, ¿Por qué aparecen gemas en Gemfile.lock que no estaban en Gemfile?**
+
+Al ejecutar el comando , Bundle busca informacion de las gemas que se encuantran en el archivo Gemfile , por ejemplo sinatra , al instalar sinatra , bundle ve que esta dependencia requiere de otras por las que de manera recursiva instala todas las dependencias necesarias .      
+</p></blockquote></details>
 
 ## Crea una aplicación SaaS sencilla con Sinatra
 Como se ha explicado las aplicaciones SaaS requieren un servidor web para recibir solicitudes HTTP del mundo exterior y un servidor de aplicaciones que "conecte" la lógica de su aplicación al servidor web. Para el desarrollo, usaremos webrick, un servidor web muy simple basado en Ruby que sería inapropiado para producción pero que está bien para el desarrollo. Tanto en desarrollo como en producción, utilizaremos el servidor de aplicaciones en rack basado en Ruby, que admite aplicaciones Ruby escritas en varios frameworks, incluidos Sinatra y Rails.
