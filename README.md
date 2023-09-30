@@ -194,22 +194,6 @@ Procfile:
 ![Alt text](image-17.png)
 </p></blockquote></details>
 
-{
-    "workbench.colorTheme": "SynthWave '84",
-    "notebook.lineNumbers": "on",
-    "notebook.consolidatedRunButton": true,
-    "jupyter.askForKernelRestart": false,
-    "github.copilot.enable": {
-        "*": true,
-        "plaintext": false,
-        "markdown": true,
-        "scminput": false
-    },
-    "workbench.iconTheme": "material-icon-theme",
-    "explorer.confirmDragAndDrop": false,
-    "liveshare.allowGuestTaskControl": true,
-    "liveshare.alwaysFollowHost": true
-}
 
 
 
