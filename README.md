@@ -264,8 +264,28 @@ Automaticamente al guardar el guard detecta el cambio y nos da el mensaje :
 
 ![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/982b03c6-f0d6-490b-8c38-df47a7179f94)
 
-Siguiendo en las pruebas vemos que ahora necesitamos implementar un metodo "guess" 
-la cual vera si la letra 'a' aparece en la palabra 'garply' 
+Siguiendo las pruebas y los casos que propone :
+
+![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/4f28da71-b75c-472d-919f-e39c9e7d0cf2)
+
+![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/e99f81b6-a226-4064-a4be-ca2b0e1ad97b)
+
+
+Generamos el metodo guess :
+
+![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/7e526a76-99ad-4769-b713-6e52b4430f4a)
+
+Asi mismo viendo las pruebas para los dos metodos extras  :
+
+![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/740c20df-b915-45c5-9bea-439c766cf963)
+
+Creamos :
+
+![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/912cc220-3d9a-4584-accc-1db03e1aac9d)
+
+
+
+
 
 
 
