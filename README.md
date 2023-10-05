@@ -284,6 +284,10 @@ Creamos :
 
 ![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/912cc220-3d9a-4584-accc-1db03e1aac9d)
 
+Guardando y actualizando las pruebas vemos que cumplen con todos los requerimientos : 
+
+![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/205c91dc-8c43-4309-946b-8504106ce2f9)
+
 
 
 
