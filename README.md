@@ -252,6 +252,26 @@ Según las pruebas de este bloque describe, ¿qué variables de instancia se esp
 </p></blockquote></details>
 
 
+Comenzamos con los primeros test :
+
+![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/2d3d510f-0329-4a62-be25-248f58a83b49)
+
+para que puedan pasar solo necesitamos  incluir variables en el constructor y que estos actuen como getters y setters :
+
+![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/b376477f-0b61-4e5e-b7be-1d0706694bf7)
+
+Automaticamente al guardar el guard detecta el cambio y nos da el mensaje :
+
+![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/982b03c6-f0d6-490b-8c38-df47a7179f94)
+
+Siguiendo en las pruebas vemos que ahora necesitamos implementar un metodo "guess" 
+la cual vera si la letra 'a' aparece en la palabra 'garply' 
+
+
+
+
+
+
 
 
 
