@@ -1,3 +1,3 @@
 
-require './hw-sinatra-saas-wordguesser-master/app'
+require './app'
 run WordGuesserApp
