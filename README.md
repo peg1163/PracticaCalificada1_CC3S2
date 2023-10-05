@@ -35,11 +35,11 @@ Este archivo reconocera las versiones de las gemas (bibliotecas) que utilizaremo
 
 Luego, procedemos a la instalación de estas gemas ejecutando el comando `bundle install`. Esta acción instala automáticamente las gemas necesarias para el funcionamiento de nuestra aplicación.
 
-![Alt text](image.png)
+![Alt text](Imagenes/image.png)
 
 Para mantener un sistema de control de versiones para nuestra aplicación, utilizamos Git. Gracias a la configuración previa del Gemfile, podemos controlar las versiones de manera efectiva a través de Git.
 
-![Alt text](image-1.png)
+![Alt text](Imagenes/image-1.png)
 
  
 
@@ -49,14 +49,13 @@ Para mantener un sistema de control de versiones para nuestra aplicación, utili
 
 **¿Cuál es la diferencia entre el propósito y el contenido de Gemfile y Gemfile.lock?**
 
+![Alt text](Imagenes/image-3.png)
 
-El archivo *Gemfile* que creamos alberga una lista de todas las gemas necesarias para nuestra aplicación.
-
-![Alt text](image-3.png)
+El archivo *Gemfile* que creamos alberga una lista de todas las 
 
 Por otro lado, *Gemfile.lock* registra no solo las versiones de estas gemas, sino también las versiones de otras dependencias requeridas por las gemas especificadas en Gemfile.
 
-![Alt text](image-2.png)
+![Alt text](Imagenes/image-2.png)
 
 **¿Qué archivo se necesita para reproducir completamente las gemas del entorno de desarrollo en el entorno de producción?**
 
@@ -106,11 +105,11 @@ Finalmente, ejecutamos la aplicación con el siguiente comando:
 
 Después de haber completado los pasos anteriores, podremos verificar que nuestra aplicación está en funcionamiento en el puerto 3000, como se muestra en la siguiente imagen: 
 
-![Alt text](image-4.png)
+![Alt text](Imagenes/image-4.png)
 
 Como se menciono en el paso 2, al acceder a la ruta http://localhost:3000/ veremos el mensaje Hello World, como se muestra a continuación: 
 
-![Alt text](image-5.png)
+![Alt text](Imagenes/image-5.png)
 
 ## Pregunta
  
@@ -119,7 +118,7 @@ Como se menciono en el paso 2, al acceder a la ruta http://localhost:3000/ verem
 <p><blockquote>
 Si intentamos acceder a la ruta http://localhost:3000/hello, se generará un error, ya que dicha ruta no está definida en nuestra aplicación. Esto dará como resultado que muestre el siguiente mensaje de error:
 
-![Alt text](image-6.png)
+![Alt text](Imagenes/image-6.png)
 
 </p></blockquote></details>
 
@@ -128,20 +127,20 @@ Para cambiar la salida de nuestra aplicación de "Hello world" a "Goodbye world"
  
 1. Detuvimos la aplicación actual mediante el comando `Ctrl-C`, como se muestra en la siguiente imagen:
 
-    ![Alt text](image-8.png)
+    ![Alt text](Imagenes/image-8.png)
 
 
 2. Luego, modificamos el archivo app.rb para que la aplicación muestre el mensaje "Goodbye world".
 3. Después, reiniciamos la aplicación utilizando el comando bundle exec `rackup --port 3000` para el desarrollo local.
 
-    ![Alt text](image-9.png)
+    ![Alt text](Imagenes/image-9.png)
 
 
 Esto ilustra que al realizar modificaciones en nuestra aplicación mientras esta se encuentra en ejecución, debemos reiniciar Rack para que los cambios surtan efecto. Para automatizar este proceso, podemos emplear la gema `rerun`, que reinicia automáticamente Rack cuando detecta cambios en los archivos del directorio de la aplicación.
 
 Continuando, añadimos la gema `rerun` a nuestro archivo Gemfile, como se muestra en la siguiente imagen:
 
-![Alt text](image-10.png)
+![Alt text](Imagenes/image-10.png)
 
 Con esto, ya no será necesario reiniciar manualmente el servidor cada vez que realicemos cambios en nuestra aplicación. La gema `rerun` se encargará de reiniciar automáticamente el servidor por nosotros.
 
@@ -153,21 +152,21 @@ Para hacer uso de la gema `rerun` seguimos estos pasos:
 
 
 2. Luego, ejecutamos la aplicación con la gema "rerun" utilizando el comando bundle exec rerun rackup --port 3000, como se ilustra en la imagen.
-![Alt text](image-11.png)
+![Alt text](Imagenes/image-11.png)
 
 3. Con esto, el puerto estará configurado de la siguiente manera:  
 
-    ![Alt text](image-12.png)
+    ![Alt text](Imagenes/image-12.png)
 
 **Detección Automática de Cambios y Reinicio Automático del Servidor**
 
 Ahora, si modificamos el mensaje HTML en nuestra aplicación a "Hello worl !" y guardamos los cambios, el servidor detectará automáticamente la modificación y se reiniciará por sí mismo, como se muestra aquí:
 
-![Alt text](image-13.png)
+![Alt text](Imagenes/image-13.png)
 
 Si observamos el navegador, veremos que el mensaje también ha cambiado:
 
-![Alt text](image-14.png)
+![Alt text](Imagenes/image-14.png)
 
 ## Implementar en Heroku
 Heroku es una plataforma como servicio (PaaS) en la nube que nos permite implementar nuestras aplicaciones Sinatra (y más adelante, Rails). Procedemos a crear una cuenta en http://www.heroku.com para poder llevar a cabo esta implementación.
@@ -176,22 +175,24 @@ Heroku es una plataforma como servicio (PaaS) en la nube que nos permite impleme
 **Paso 2: Iniciamos Sesión en nuestra Cuenta Heroku**
 Ejecutamos el comando  `heroku login -i ` en nuestra terminal. Esto nos solicita ingresar el correo y la contraseña de nuestra cuenta de Heroku.
 
-![Alt text](image-15.png)
+![Alt text](Imagenes/image-15.png)
 
 **Paso 3: Creamos una Nueva Aplicación Heroku**
 
 Utilizamos el comando `heroku create` para crear una nueva aplicación en Heroku.
 
-![Alt text](image-16.png)
+![Alt text](Imagenes/image-16.png)
 
 **Paso 4: Creamos un Archivo Procfile**
 
 Creamos un archivo llamado "Procfile" en nuestro proyecto con las instrucciones necesarias para ejecutar nuestra aplicación en Heroku. Este archivo define el proceso web que Heroku debe ejecutar.
 
+![Alt text](Imagenes/image-17.png)
+
 **Paso 5: Subimos nuestro Repositorio a Heroku**
 Usamos el comando `git push heroku master` para cargar nuestro repositorio en Heroku.
 
-![Alt text](image-18.png)
+![Alt text](Imagenes/image-18.png)
 
 **Paso 6: Verificamos la Implementación en Heroku**
 
@@ -199,11 +200,11 @@ Podemos verificar la ejecución de nuestra aplicación desde la página de Herok
 
 
 
-![Alt text](image-19.png)
+![Alt text](Imagenes/image-19.png)
 
 Si todo se ejecuta correctamente, vemos nuestra aplicación en funcionamiento en la plataforma Heroku.
 
-![Alt text](image-20.png)
+![Alt text](Imagenes/image-20.png)
  
 Este proceso nos permite llevar nuestra aplicación Sinatra a la nube y hacerla accesible en línea a través de Heroku.
 
@@ -220,7 +221,7 @@ Luego, ingresamos al repositorio clonado para continuar con nuestro trabajo.
 
 A continuación, se presenta una vista de lo que realizamos:
 
-![Alt text](image-21.png)
+![Alt text](Imagenes/image-21.png)
  
 
 
