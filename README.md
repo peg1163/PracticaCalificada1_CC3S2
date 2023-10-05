@@ -226,20 +226,7 @@ A continuación, se presenta una vista de lo que realizamos:
 
 
 ## Desarrollo de Wordguesser usando TDD y Guard
-En esta actividad utilizaremos el desarrollo basado en pruebas (TDD) basado en las pruebas que proporcionamos para desarrollar la lógica del juego para Wordguesser, lo que te obliga a pensar en qué datos son necesarios para capturar el estado del juego. Esto será importante cuando hagas el juego en forma SaaS en la siguiente parte.
-Qué harás: utilizarás  autotest: los casos de prueba proporcionados se volverán a ejecutar cada vez que realices un cambio en el código de la aplicación. Una por una, las pruebas pasarán de rojo (reprobado) a verde (aprobado) a medida que creas el código de la aplicación. Cuando hayas terminado, tendrá una clase de juego Wordguesser funcional, lista para ser "envuelta" en SaaS usando Sinatra.
-El juego de adivinanzas de palabras basado en la Web funcionará de la siguiente manera:
--	La computadora elige una palabra al azar.
--	El jugador adivina letras para adivinar la palabra.
--	Si el jugador adivina la palabra antes de adivinar siete letras incorrectamente, gana, de lo contrario pierden. (Adivinar la misma letra repetidamente simplemente se ignora).
--	Una letra que ya ha sido adivinada o que no es un carácter del alfabeto se considera "no válida", es decir, no es una adivinación "válida".
-Para que el juego sea divertido, cada vez que inicies un nuevo juego, la aplicación recuperará 	una palabra en inglés aleatoria de un servidor remoto, por lo que cada juego será diferente. Esta 	característica te presentará no sólo el uso de un servicio externo (el generador de palabras 	aleatorias) como un "bloque de construcción" en una arquitectura orientada a servicios, sino 	también cómo un escenario de Cucumber puedes probar dicha aplicación de manera 		determinista con pruebas que rompan la dependencia del servicio externo en el momento de 	la prueba.
--	En el directorio raíz de la aplicación, escribe bundle exec autotest.
-Esto activará el framework Autotest, que busca varios archivos para determinar qué tipo de aplicación estás probando y qué framework de prueba estás usando. En este caso, descubrirá el archivo llamado .rspec, que contiene opciones de RSpec e indica que estamos usando el framework de prueba de RSpec. Por lo tanto, Autotest buscará archivos de prueba en spec/ y los archivos de clase correspondientes en lib/.
-Proporcionamos un conjunto de 18 casos de prueba para ayudarte a desarrollar la clase de juego. Echa un vistazo a spec/wordguesser_game_spec.rb. Especifica los comportamientos que espera de la clase lib/wordguesser_game.rb. Inicialmente, agregamos :pending => true a cada especificación (spec), por lo que cuando Autotest las ejecute por primera vez, debería ver los nombres de los casos de prueba impresos en amarillo y el informe "18 examples, 0 failures, 18 pending".
-Ahora, con Autotest aun ejecutándose, elimina :pending => true y guarde el archivo. Deberías ver inmediatamente que Autotest se activa y vuelve a ejecutar las pruebas. Ahora debería tener 18 ejemplos, 1 fallido y 17 pendientes.
-El bloque describe ‘new’ significa "el siguiente bloque de pruebas describe el comportamiento de una 'nueva' instancia de WordGuesserGame". La línea WordGuesserGame.new hace que se cree una nueva instancia y las siguientes líneas verifican la presencia y los valores de las variables de instancia.
-
+En esta actividad utilizaremos el desarrollo basado en pruebas (TDD) basado en las pruebas que proporcionamos para desarrollar la lógica del juego para Wordguesser.
 
 
 
