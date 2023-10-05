@@ -228,6 +228,32 @@ A continuación, se presenta una vista de lo que realizamos:
 ## Desarrollo de Wordguesser usando TDD y Guard
 En esta actividad utilizaremos el desarrollo basado en pruebas (TDD) basado en las pruebas que proporcionamos para desarrollar la lógica del juego para Wordguesser.
 
+A diferencia de los mostrado en la aplicacion , en esta usaremos guard para las pruebas .En el proyecto descargado vemos que tenemos 18 pruebas pero estas en pendiente :
+
+![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/52f637ee-6858-48cc-b381-a96c902a8491)
+
+Iniciaremos quitando el pendiente de la primera prueba :
+
+![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/8de29370-0907-495e-b7bb-19ba1263f4ef) 
+
+al eliminar el pendiente , la prueba fall aya que aun no hemos implementado el metodo que esta testeando : 
+
+![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/3599338a-3940-4524-9f55-a2ef5582e2a2)
+
+Preguntas 
+Según los casos de prueba, ¿cuántos argumentos espera el constructor de la clase de juegos (identifica la clase) y, por lo tanto, cómo será la primera línea de la definición del método que debes agregar a wordguesser_game.rb?
+ 
+Según las pruebas de este bloque describe, ¿qué variables de instancia se espera que tenga  WordGuesserGame?
+
+<details><summary>Respuesta</summary>
+<p><blockquote>
+
+
+</p></blockquote></details>
+
+
+
+
 
 
 
