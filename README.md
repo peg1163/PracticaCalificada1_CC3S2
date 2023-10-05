@@ -266,7 +266,8 @@ Automaticamente al guardar el guard detecta el cambio y nos da el mensaje :
 
 Siguiendo las pruebas y los casos que propone :
 
-![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/4f28da71-b75c-472d-919f-e39c9e7d0cf2)
+![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/49aeb148-f8e7-41c2-b463-da40febf7c7f)
+
 
 ![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/e99f81b6-a226-4064-a4be-ca2b0e1ad97b)
 
