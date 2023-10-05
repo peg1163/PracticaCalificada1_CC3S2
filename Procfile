@@ -1,1 +1,1 @@
-web: cd hw-sinatra-saas-wordguesser && bundle exec rackup config.ru -p $PORT
+web: cd hw-sinatra-saas-wordguesser-master && bundle exec rackup config.ru -p $PORT
