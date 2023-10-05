@@ -39,6 +39,6 @@ RSpec.configure do |config|
   end
   config.color = true
 
-  # Cambia la configuración para incluir ejemplos pendientes
+
 
 end
