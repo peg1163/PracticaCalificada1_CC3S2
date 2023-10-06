@@ -226,45 +226,57 @@ A continuación, se presenta una vista de lo que realizamos:
 
 
 ## Desarrollo de Wordguesser usando TDD y Guard
-En esta actividad utilizaremos el desarrollo basado en pruebas (TDD) basado en las pruebas que proporcionamos para desarrollar la lógica del juego para Wordguesser.
 
-A diferencia de los mostrado en la aplicacion , en esta usaremos guard para las pruebas .En el proyecto descargado vemos que tenemos 18 pruebas pero estas en pendiente :
+En esta etapa del desarrollo, nos centraremos en implementar la lógica del juego Wordguesser utilizando la metodología de Desarrollo Basado en Pruebas (TDD). 
+```
+A diferencia de lo que se muestra en la aplicación, optamos por utilizar Guard en lugar de Autotest para ejecutar las pruebas. Esta decisión se basó en ciertos problemas que enfrentamos con las gemas desactualizadas en el proyecto clonado, ya que este requería una versión específica de Ruby, que en este caso era Ruby 2.6.6. Para gestionar esta versión de Ruby, utilizamos RVM (Ruby Version Manager). Esto nos permitió asegurarnos de que estábamos trabajando con la versión exacta de Ruby que el proyecto requería- Sin embargo, dado que Autotest no funcionaba correctamente debido a las discrepancias en las gemas y las versiones de Ruby, decidimos optar por Guard para la ejecución de las pruebas. Guard nos proporcionó una solución más efectiva para administrar las pruebas y asegurarnos de que funcionaran sin problemas, incluso con nuestras gemas actualizadas y la versión específica de Ruby.
+```
+
+Una vez configurado nuestro entorno y ejecutado el guard, nos dimos cuenta de que había un conjunto de 18 pruebas pendientes:
 
 ![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/52f637ee-6858-48cc-b381-a96c902a8491)
 
-Iniciaremos quitando el pendiente de la primera prueba :
+Comenzaremos eliminando pending => true (estado pendiente) de la primera prueba y guardamos el archivo.Esto hará que Guard ejecute automaticamente las pruebas relacionadas.
 
 ![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/8de29370-0907-495e-b7bb-19ba1263f4ef) 
 
-al eliminar el pendiente , la prueba fall aya que aun no hemos implementado el metodo que esta testeando : 
+Como momencionamos eliminamos  pending => true (estado "pendiente"), de este modo esta prueba dejará de estar pendiente, pero aún se observa que la prueba fallará, esto debio a que aún no hemos implementado el método al cual la prueba hace referencia.
 
 ![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/3599338a-3940-4524-9f55-a2ef5582e2a2)
 
-Preguntas 
-Según los casos de prueba, ¿cuántos argumentos espera el constructor de la clase de juegos (identifica la clase) y, por lo tanto, cómo será la primera línea de la definición del método que debes agregar a wordguesser_game.rb?
+## Pregunta
+**Según los casos de prueba, ¿Cuántos argumentos espera el constructor de la clase de juegos (identifica la clase) y, por lo tanto, cómo será la primera línea de la definición del método que debes agregar a `wordguesser_game.rb`?**
  
-Según las pruebas de este bloque describe, ¿qué variables de instancia se espera que tenga  WordGuesserGame?
+<details><summary>Respuesta</summary>
+<p><blockquote>
+ RESPUESTA OWO 
+</p></blockquote></details>
+
+**Según las pruebas de este bloque describe, ¿Qué variables de instancia se espera que tenga WordGuesserGame?**
 
 <details><summary>Respuesta</summary>
 <p><blockquote>
-
-
+ RESPUESTA OWO 
 </p></blockquote></details>
 
 
-Comenzamos con los primeros test :
-
-![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/2d3d510f-0329-4a62-be25-248f58a83b49)
-
-para que puedan pasar solo necesitamos  incluir variables en el constructor y que estos actuen como getters y setters :
+Implementamos la clase `WordGuesserGame` con un constructor que acepte los argumentos necesarios según las pruebas que tenemos. Además nos aseguramos de que estas variables actúen como getters y setters para que podamos acceder y modificar sus valores según sea necesario para pasar las pruebas.
 
 ![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/b376477f-0b61-4e5e-b7be-1d0706694bf7)
 
-Automaticamente al guardar el guard detecta el cambio y nos da el mensaje :
+
+Anteriormente, eliminamos pending => true de la primera prueba, como se puede observar, ya que planeamos trabajar en esta prueba una vez que hayamos implementado completamente la clase `WordGuesserGame`.
+
+![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/2d3d510f-0329-4a62-be25-248f58a83b49)
+
+Cuando guardamos los cambios, el sistema de guardado detecta la modificación y nos muestra el siguiente mensaje:
 
 ![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/982b03c6-f0d6-490b-8c38-df47a7179f94)
 
-Siguiendo las pruebas y los casos que propone :
+Luego, continuamos eliminando *:pending => true* del resto de las pruebas: guess, check_win_or_lose y word_with_guesses.
+
+
+Siguiendo las pruebas y los casos propuestos, a continuación, se presenta la prueba "guessing": 
 
 ![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/49aeb148-f8e7-41c2-b463-da40febf7c7f)
 
@@ -272,23 +284,23 @@ Siguiendo las pruebas y los casos que propone :
 ![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/e99f81b6-a226-4064-a4be-ca2b0e1ad97b)
 
 
-Generamos el metodo guess :
+Para esta prueba se implementa el método guess de la clase `WordGuesserGame`
 
 ![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/7e526a76-99ad-4769-b713-6e52b4430f4a)
 
-Asi mismo viendo las pruebas para los dos metodos extras  :
+Analogamente para el resto  pruebas check_win_or_lose y word_with_guesses
 
 ![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/740c20df-b915-45c5-9bea-439c766cf963)
 
-Creamos :
+Se definio para cada uno su método respectivo.
 
 ![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/912cc220-3d9a-4584-accc-1db03e1aac9d)
 
-Guardando y actualizando las pruebas vemos que cumplen con todos los requerimientos : 
+Al guardar y actualizar las pruebas, hemos comprobado que cumplen con todos los requisitos necesarios:
 
 ![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/205c91dc-8c43-4309-946b-8504106ce2f9)
 
-
+Este proceso de desarrollo y pruebas asegura que nuestro código cumpla con los estándares y funcione correctamente.
 
 
 
