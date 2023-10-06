@@ -228,9 +228,10 @@ A continuación, se presenta una vista de lo que realizamos:
 ## Desarrollo de Wordguesser usando TDD y Guard
 
 En esta etapa del desarrollo, nos centraremos en implementar la lógica del juego Wordguesser utilizando la metodología de Desarrollo Basado en Pruebas (TDD). 
-```
+
+`````````
 A diferencia de lo que se muestra en la aplicación, optamos por utilizar Guard en lugar de Autotest para ejecutar las pruebas. Esta decisión se basó en ciertos problemas que enfrentamos con las gemas desactualizadas en el proyecto clonado, ya que este requería una versión específica de Ruby, que en este caso era Ruby 2.6.6. Para gestionar esta versión de Ruby, utilizamos RVM (Ruby Version Manager). Esto nos permitió asegurarnos de que estábamos trabajando con la versión exacta de Ruby que el proyecto requería- Sin embargo, dado que Autotest no funcionaba correctamente debido a las discrepancias en las gemas y las versiones de Ruby, decidimos optar por Guard para la ejecución de las pruebas. Guard nos proporcionó una solución más efectiva para administrar las pruebas y asegurarnos de que funcionaran sin problemas, incluso con nuestras gemas actualizadas y la versión específica de Ruby.
-```
+`````````
 
 Una vez configurado nuestro entorno y ejecutado el guard, nos dimos cuenta de que había un conjunto de 18 pruebas pendientes:
 
@@ -292,7 +293,7 @@ Analogamente para el resto  pruebas check_win_or_lose y word_with_guesses
 
 ![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/740c20df-b915-45c5-9bea-439c766cf963)
 
-Se definio para cada uno su método respectivo.
+Se definio para prueba, su método respectivo.
 
 ![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/912cc220-3d9a-4584-accc-1db03e1aac9d)
 
