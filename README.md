@@ -433,18 +433,41 @@ Ejecutando el comando de prueba :
 ¿Cuál es el significado de usar Given versus When versus Them en el archivo de características? ¿Qué pasa si los cambias? Realiza un experimento sencillo para averiguarlo y luego confirme los resultados utilizando Google.
 
 ### Desarrollar el escenario para adivinar una letra
+Ahora no solo haremos pruebas para cuando inicia , ahora prepararemos un escenario parwa cuando adivine una letra para eso utilizaremos el guess.feature   
+
+![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/1874de98-de08-4349-bae5-f58e37d5b443)  
+
+vemos que no pasan las pruebas , es porque aun no hemos modificado el guess en app.rb
+Modificamos app.rb 
+
+![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/e431da64-1425-4814-af5f-0df8b4c96d6f)
+
+Ahora ejecutemos las pruebas :
+
+![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/7e373fb5-a981-4b7c-b622-84ef9834144a)
+
+Vemos que ahora si logra pasar las pruebas 
 
 
 
 
+## Pregunta
+En game_steps.rb, mira el código del paso "I start a new game..." y, en particular, el comando stub_request. Dada la pista de que ese comando lo proporciona una gema (biblioteca) llamada webmock, ¿qué sucede con esa línea y por qué es necesaria? (Utiliza Google si es necesario).
+
+
+## Pregunta
+En tu código Sinatra para procesar una adivinación, ¿qué expresión usaría para extraer *solo el primer carácter* de lo que el usuario escribió en el campo de adivinación de letras del formulario en show.erb?
 
 
 
+# Parte 5: Otros casos 
+Ahora , en el archivo feature vemos que hay mas pruebas que podemos ejecutar
 
+![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/99e9aefc-aafa-4d15-95a4-940600796a19)
 
+y asi poder completar :
 
-
-
+![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/0b2e40d3-419d-4ab0-9eea-d3b3d0ec0957)
 
 
 
