@@ -321,7 +321,7 @@ Al guardar y actualizar las pruebas, hemos comprobado que cumplen con todos los 
 
 Este proceso de desarrollo y pruebas asegura que nuestro código cumpla con los estándares y funcione correctamente.
 
-# Parte 2: Wordguesser
+# Parte 2: RESTful para Wordguesser
 
 ## Identificación del estado mínimo del juego
 
