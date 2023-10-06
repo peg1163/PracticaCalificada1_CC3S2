@@ -1,7 +1,6 @@
 # Primera Práctica Calificada 
 Integrantes:  
 - Acuña Napan Jaime Gonzalo
-- Canales Yarin, Edward Alexander
 - Zuñiga Chicaña, Alejandra Aztirma  
 
 # Creacion de aplicaciones SaaS
@@ -372,36 +371,52 @@ Se explora la necesidad de la acción `GET /new` en el contexto de una arquitect
 En una arquitectura orientada a servicios, los servicios web generalmente no necesitan una acción `GET /new` porque las interacciones se realizan programáticamente a través de API y no a través de interfaces web humanas. La acción `GET /new` es específica de una interfaz web para permitir que los usuarios inicien juegos manualmente.
 
 # Parte 3 :Conexión de WordGuesserGame a Sinatra
-Teniendo algunos conceptos mas claros comenzaremos a hacer la conexion de la aplicacion con sinatra 
+Con una comprensión más clara de los conceptos, vamos a conectar la aplicación con Sinatra.
 
 ## Pregunta 
-@game en este contexto es una variable de instancia de qué clase? 
+
+**En este contexto, ¿de qué clase es la variable de instancia `@game`?**
+
+ En el contexto proporcionado en la aplicación Sinatra, `@game` es una variable de instancia de la clase WordGuesserGame. Se utiliza para mantener el estado del juego a lo largo de las solicitudes HTTP.
+
+
+
 ## Pregunta
-¿Por qué esto ahorra trabajo en comparación con simplemente almacenar esos mensajes en el hash de sesion []?
+
+**¿Por qué esto ahorra trabajo en comparación con simplemente almacenar esos mensajes en el hash de sesion []?**
+
+Usar flash[] ahorra trabajo porque elimina la necesidad de borrar manualmente los mensajes temporales de la sesión. Los mensajes flash se borran automáticamente después de su uso, lo que significa que los desarrolladores no tienen que preocuparse de mantener la sesión limpia.
+
 ### Ejecutando la aplicación Sinatra
 
-Anteriormente , pudimos subir una aplicacion sencilla con un hello world a  un puerto local , ahora lo que haremos es levantar la aplicacion wordguesser a un puerto local con ayuda de sinatra ;Usando el comando "bundle exec rerun -- rackup -port 3000":
+Anteriormente, pudimos lanzar una aplicación sencilla con un "Hello World" en un puerto local. Ahora, vamos a levantar la aplicación Wordguesser en un puerto local con la ayuda de Sinatra. Ejecutamos el siguiente comando:
+
+```
+    bundle exec rerun -- rackup -port 3000
+```
+
+La siguiente imagen muestra el resultado de ejecutar el comando bundle exec rerun -- rackup -port 3000 en la terminal. Este comando levanta una aplicación Sinatra en el puerto 3000.
 
 ![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/b93c895a-4346-4b90-87c1-2840fc4277a6)
 
 ## Pregunta
-Según el resultado de ejecutar este comando, ¿cuál es la URL completa que debes visitar para visitar la página New Game?
-Respuesta :Usando sinatra la aplicacion se despliega dentro de nuestro puerto local 3000 y para poder entrar en New Game tendriamos que usar el url del puerto añadiendo la direccion new : http://localhost:3000/new como se vio en la imagen anterior .
 
+**Según el resultado de ejecutar este comando, ¿cuál es la URL completa que debes visitar para visitar la página New Game?**
 
-Visita esta URL y verifica que aparezca la página Iniciar New Game
+Al utilizar Sinatra, la aplicación se despliega en nuestro puerto local 3000. Para acceder a la página "New Game", simplemente debemos agregar "/new" a la URL del puerto local, lo que resulta en la siguiente dirección: http://localhost:3000/new, tal como se muestra en la imagen anterior.
+
+Visitamos la URL proporcionada y confirmamos que la página "Iniciar New Game" se muestra correctamente:
 
 ![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/86d61d0d-2e57-4f69-81af-2363adad059c)
 
-¿Dónde está el código HTML de esta página?
-Respuesta: Cuando revisamos el codigo de app.rb vemos que cuando se ejecuta esta nos redirecciona a /new asi mismo este new contiene a new.erb  donde se encuentra el HTML
+**¿Dónde está el código HTML de esta página?**  
+El código HTML de esta página se encuentra en el archivo new.erb. Cuando revisamos el código en app.rb, notamos que al ejecutar la ruta "/new", esta ruta renderiza el archivo "new.erb", que contiene el código HTML correspondiente.
 
-Verifica que cuando haces clic en el botón New Game obtienes un error. Esto se debe a que deliberadamente dejamos incompleto el <form> que encierra este botón: no hemos especificado dónde debe publicarse el formulario
-Respuesta : Asi es , ya que si revisamos el HTML contenido en new.erb vemos que el form esta incompleto .
+Al hacer clic en el botón "New Game", se generará un error intencionado debido a que  al examinar el HTML en el archivo "new.erb", se puede notar que el elemento *form* está incompleto, lo que ocasiona el error al hacer clic en "New Game".
 
 ![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/483fb5ef-a599-4af0-9f7a-2ffcfb79f88d)
 
-Haciendo que cuando demos click en new game nos de un error :
+Este error es evidente cuando se intenta iniciar un nuevo juego, como se muestra en la siguiente imagen:
 
 ![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/e73ad833-ad11-4145-840b-cfb8c1fc32fe)
 
@@ -411,21 +426,83 @@ Haciendo que cuando demos click en new game nos de un error :
 
 # Parte 4 : Cucumber 
 
+En nuestro proceso de desarrollo de software, utilizamos Cucumber para escribir pruebas de aceptación e integración de alto nivel en lenguaje natural, almacenadas en archivos .feature. Además, combinamos Cucumber con RSpec para impulsar el desarrollo de código. Para simular el comportamiento de un navegador y realizar pruebas de integración, utilizamos Capybara, que simula el servidor como lo haría un navegador y nos permite inspeccionar las respuestas de la aplicación a las acciones del usuario.
+
+Una vez leida la sección sobre "Using Capybara with Cucumber”  en la página de inicio de Capybara, procedemos a responder las siguientes preguntas:
+
 ## Preguntas
-Lea la sección sobre " Using Capybara with Cucumber”  en la página de inicio de Capybara. ¿Qué pasos utiliza Capybara para simular el servidor como lo haría un navegador? ¿Qué pasos utiliza Capybara para inspeccionar la respuesta de la aplicación al estímulo?
-Mirando features/guess.feature, ¿cuál es la función de las tres líneas que siguen al encabezado "Feature:"?
-En el mismo archivo, observando el paso del escenario Given I start a new game with word "garply" qué líneas en game_steps.rb se invocarán cuando Cucumber intente ejecutar este paso y cuál es el papel de la cadena "garply" en el paso?
+
+**¿Qué pasos utiliza Capybara para simular el servidor como lo haría un navegador? ¿Qué pasos utiliza Capybara para inspeccionar la respuesta de la aplicación al estímulo?**
+
+Para simular el servidor como lo haría un navegador utilizando Capybara en Cucumber, Capybara sigue estos pasos:
+
+En primer lugar, se configura Capybara en el proyecto de Cucumber, como se muestra en el ejemplo proporcionado:
+```ruby
+require 'capybara/cucumber'
+Capybara.app = MyRackApp
+```
+
+Luego, escribe los escenarios de prueba utilizando el DSL de Capybara en los pasos de Cucumber. Capybara interactuará con la aplicación web como lo haría un navegador. En el ejemplo proporcionado
+
+```ruby
+When /I sign in/ do
+  within("#session") do
+    fill_in 'Email', with: 'user@example.com'
+    fill_in 'Password', with: 'password'
+  end
+  click_button 'Sign in'
+end
+```
+
+
+**Mirando features/guess.feature, ¿cuál es la función de las tres líneas que siguen al encabezado "Feature:"?**
+```
+Feature: guess correct letter
+  As a player playing Wordguesser
+  So that I can make progress toward the goal
+  I want to see when my guess is correct
+```
+Estas tres líneas que siguen al encabezado "Feature:" en un archivo de características de Cucumber funcionan como un comentario descriptivo o título de la característica. Este comentario brinda una breve descripción de alto nivel de lo que se está evaluando o probando en esa característica específica.
+
+**En el mismo archivo, observando el paso del escenario Given I start a new game with word "garply" qué líneas en game_steps.rb se invocarán cuando Cucumber intente ejecutar este paso y cuál es el papel de la cadena "garply" en el paso?**
+
+En el escenario "Given I start a new game with word "garply"", las líneas en `game_steps.rb` que se invocarán son las siguientes:
+
+```ruby
+When /^I start a new game with word "(.*)"$/ do |word|
+  stub_request(:post, "http://randomword.saasbook.info/RandomWord").
+    to_return(:status => 200, :headers => {}, :body => word)
+  visit '/new'
+  click_button "New Game"
+end
+```
+El papel de la cadena "garply" en este paso es actuar como un argumento que se pasa al paso para personalizar la solicitud HTTP simulada y el inicio del juego.
+
+
 ### Haz que pase tu primer escenario
 
-Al ejecutar el comando cucumber features/start_new_game.feature vemos que la prueba no llega a pasar ya que necesitamos completar algunos atributos en el <form> : 
+**Pregunta
+Cuando el "simulador de navegador" en Capybara emite la solicitud de visit '/new', Capybara realizará
+un HTTP GET a la URL parcial /new en la aplicación. ¿Por qué crees que visit siempre realiza un GET, en
+lugar de dar la opción de realizar un GET o un POST en un paso determinado?**  
+La razón por la que visit siempre hace una solicitud GET en Capybara es porque Capybara simula el comportamiento de un navegador web. Cuando los usuarios navegan por un sitio web, generalmente hacen clic en enlaces o escriben URL en la barra de direcciones, lo que resulta en solicitudes GET. Las solicitudes POST están más relacionadas con el envío de formularios, una acción más específica y deliberada. 
+
+Para que se cumpla el primer escenario, debemos ejecutar el comando `cucumber features/start_new_game.feature`. Al hacerlo, notamos que la prueba no se aprueba debido a la necesidad de completar ciertos atributos en el formulario
 
 ![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/404a4e4e-b3ed-431c-b4b0-cda04b50c789)
 
-Agregando un atributo mas el cual es " action " 
+Para resolver esto, agregamos un atributo adicional llamado "*action*". Este atributo especifica la acción que el usuario desea realizar.
 
 ![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/2abd62b5-a10e-4e2b-8cde-f239349ebef6)
 
-Ejecutando el comando de prueba :
+Luego, ejecutamos el comando de prueba:
+
+```
+cucumber features/start_new_game.feature
+```
+
+
+Como se muestra a continuación, el cual nos da la siguiente salida que significa que nuestra prueba al impementar el atributo, paso.
 
 ![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/891d9420-df8f-4f2f-871a-46805bc89268)
 
