@@ -247,21 +247,39 @@ Como momencionamos eliminamos  pending => true (estado "pendiente"), de este mod
 
 ## Pregunta
 **Según los casos de prueba, ¿Cuántos argumentos espera el constructor de la clase de juegos (identifica la clase) y, por lo tanto, cómo será la primera línea de la definición del método que debes agregar a `wordguesser_game.rb`?**
+
+```ruby
+describe 'new' do
+  it "takes a parameter and returns a WordGuesserGame object" do
+    @game = WordGuesserGame.new('glorp')
+    expect(@game).to be_an_instance_of(WordGuesserGame)
+    expect(@game.word).to eq('glorp')
+    expect(@game.guesses).to eq('')
+    expect(@game.wrong_guesses).to eq('')
+  end
+end
+```
  
 <details><summary>Respuesta</summary>
 <p><blockquote>
- RESPUESTA OWO 
+
+ El constructor de la clase WordGuesserGame espera un argumento, que es la palabra a adivinar. Entonces, la primera línea de la definición del método initialize en el archivo `wordguesser_game.rb` debería ser:
+```  ruby
+    def initialize(word_to_guess)
+   ```
+Esto significa que el constructor tomará un único argumento llamado *word_to_guess*, que será la palabra que se va a adivinar.  
 </p></blockquote></details>
 
 **Según las pruebas de este bloque describe, ¿Qué variables de instancia se espera que tenga WordGuesserGame?**
 
 <details><summary>Respuesta</summary>
 <p><blockquote>
- RESPUESTA OWO 
+
+Según las pruebas en el bloque `describe`, se espera que la clase `WordGuesserGame` tenga tres variables de instancia. La primera, `@game.word`, debería contener la palabra a adivinar. La segunda, `@game.guesses`, se llenará con las letras adivinadas correctamente y estará vacía al inicio. La tercera, `@game.wrong_guesses`, se utilizará para almacenar letras adivinadas incorrectamente y también comenzará vacía.
 </p></blockquote></details>
 
 
-Implementamos la clase `WordGuesserGame` con un constructor que acepte los argumentos necesarios según las pruebas que tenemos. Además nos aseguramos de que estas variables actúen como getters y setters para que podamos acceder y modificar sus valores según sea necesario para pasar las pruebas.
+Continuando con la actividad, implementamos la clase `WordGuesserGame` con un constructor que acepte los argumentos necesarios según las pruebas que tenemos. Además nos aseguramos de que estas variables actúen como getters y setters para que podamos acceder y modificar sus valores según sea necesario para pasar las pruebas.
 
 ![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/b376477f-0b61-4e5e-b7be-1d0706694bf7)
 
