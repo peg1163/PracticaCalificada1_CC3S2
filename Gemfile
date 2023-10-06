@@ -16,6 +16,7 @@ group :development, :test do
 
   gem 'rack-test'
   gem 'rack_session_access'
+  gem 'rack-handlers'
   gem 'puma'
   gem 'byebug', '11.0.0'
   gem 'launchy'
