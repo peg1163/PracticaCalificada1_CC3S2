@@ -11,9 +11,7 @@ group :development, :test do
 
   gem 'rspec'
   gem 'rspec-autotest'
-
-  gem 'rails'
-
+  
   gem 'rack-test'
   gem 'rack_session_access'
   gem 'rack-handlers'
