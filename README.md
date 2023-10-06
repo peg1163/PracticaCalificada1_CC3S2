@@ -321,6 +321,56 @@ Al guardar y actualizar las pruebas, hemos comprobado que cumplen con todos los 
 
 Este proceso de desarrollo y pruebas asegura que nuestro código cumpla con los estándares y funcione correctamente.
 
+# Parte 2: Wordguesser
+
+## Identificación del estado mínimo del juego
+
+Antes de diseñar la aplicación, es importante identificar cuál es el estado mínimo del juego que debemos mantener para que los usuarios puedan jugar de manera efectiva. Este estado mínimo es esencial para preservar el progreso del juego entre las solicitudes HTTP.
+
+**Pregunta 1: Enumera el estado mínimo del juego que se debe mantener durante una partida de Wordguesser.**
+
+El estado mínimo del juego que debe mantenerse incluye:
+- La palabra oculta que el jugador está tratando de adivinar.
+- Las letras adivinadas correctamente.
+- Las letras adivinadas incorrectamente.
+- El número de intentos restantes.
+
+
+## Identificación de las acciones del jugador
+
+Para diseñar una aplicación interactiva como Wordguesser, es crucial identificar las acciones que los jugadores pueden realizar y que tienen un impacto en el estado del juego. Estas acciones definirán las rutas RESTful de la aplicación.
+
+**Pregunta 2: Enumera las acciones del jugador que podrían provocar cambios en el estado del juego.**
+
+ Las acciones del jugador que pueden cambiar el estado del juego incluyen:
+- Adivinar una letra.
+- Comenzar un nuevo juego.
+
+## Asignación de métodos HTTP en un diseño RESTful
+
+En el diseño de una aplicación RESTful, es fundamental asignar correctamente los métodos HTTP a las operaciones de recursos. Esto garantiza que las solicitudes se manejen de manera coherente y segura.
+
+**Pregunta 3: Para un buen diseño RESTful, ¿cuáles de las operaciones de recursos deberían ser manejadas por HTTP GET y cuáles deberían ser manejadas por HTTP POST?**
+
+En un diseño RESTful, las operaciones suelen manejarse de la siguiente manera:
+- `GET` se utiliza para acciones que no modifican el estado del servidor y que pueden mostrarse en una página web, como mostrar el estado actual del juego o las páginas de victoria/derrota.
+- `POST` se utiliza para acciones que modifican el estado del servidor, como enviar una adivinanza o iniciar un nuevo juego.
+
+## Uso de `GET` en la acción "nueva"
+En el diseño RESTful, es importante asignar el método HTTP correcto para cada acción. La pregunta se centra en la elección de `GET` para la acción "nueva" y su justificación.
+
+**Pregunta 4: ¿Por qué es apropiado que la nueva acción utilice GET en lugar de POST?**
+
+La acción "nueva" utiliza el método `GET` porque no modifica el estado del servidor. Simplemente muestra un formulario para que el usuario humano inicie un nuevo juego, y esta acción no tiene un impacto directo en el servidor.
+
+## Acción `GET /new` en una arquitectura orientada a servicios
+
+Se explora la necesidad de la acción `GET /new` en el contexto de una arquitectura orientada a servicios frente a una aplicación web tradicional.
+
+**Pregunta 5: Explica por qué la acción GET /new no sería necesaria si tu juego Wordguesser fuera llamado como un servicio en una verdadera arquitectura orientada a servicios.**
+
+En una arquitectura orientada a servicios, los servicios web generalmente no necesitan una acción `GET /new` porque las interacciones se realizan programáticamente a través de API y no a través de interfaces web humanas. La acción `GET /new` es específica de una interfaz web para permitir que los usuarios inicien juegos manualmente.
+
 
 
 
