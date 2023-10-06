@@ -372,15 +372,33 @@ Se explora la necesidad de la acción `GET /new` en el contexto de una arquitect
 En una arquitectura orientada a servicios, los servicios web generalmente no necesitan una acción `GET /new` porque las interacciones se realizan programáticamente a través de API y no a través de interfaces web humanas. La acción `GET /new` es específica de una interfaz web para permitir que los usuarios inicien juegos manualmente.
 
 
-## CUCUMBER :
+# Parte 4 : Cucumber 
+
+## Preguntas
+Lea la sección sobre " Using Capybara with Cucumber”  en la página de inicio de Capybara. ¿Qué pasos utiliza Capybara para simular el servidor como lo haría un navegador? ¿Qué pasos utiliza Capybara para inspeccionar la respuesta de la aplicación al estímulo?
+Mirando features/guess.feature, ¿cuál es la función de las tres líneas que siguen al encabezado "Feature:"?
+En el mismo archivo, observando el paso del escenario Given I start a new game with word "garply" qué líneas en game_steps.rb se invocarán cuando Cucumber intente ejecutar este paso y cuál es el papel de la cadena "garply" en el paso?
+### Haz que pase tu primer escenario
 
 Al ejecutar el comando cucumber features/start_new_game.feature vemos que la prueba no llega a pasar ya que necesitamos completar algunos atributos en el <form> : 
 
 ![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/404a4e4e-b3ed-431c-b4b0-cda04b50c789)
 
-Agregando un atributo mas el cual es " action " , logra pasar el test 
+Agregando un atributo mas el cual es " action " 
+
+![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/2abd62b5-a10e-4e2b-8cde-f239349ebef6)
+
+Ejecutando el comando de prueba :
 
 ![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/891d9420-df8f-4f2f-871a-46805bc89268)
+
+## Pregunta 
+¿Cuál es el significado de usar Given versus When versus Them en el archivo de características? ¿Qué pasa si los cambias? Realiza un experimento sencillo para averiguarlo y luego confirme los resultados utilizando Google.
+
+### Desarrollar el escenario para adivinar una letra
+
+
+
 
 
 
