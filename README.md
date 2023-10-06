@@ -509,28 +509,46 @@ Como se muestra a continuación, el cual nos da la siguiente salida que signific
 ## Pregunta 
 ¿Cuál es el significado de usar Given versus When versus Them en el archivo de características? ¿Qué pasa si los cambias? Realiza un experimento sencillo para averiguarlo y luego confirme los resultados utilizando Google.
 
+Los pasos "Given", "When" y "Then" tienen significados específicos:
+
+"Given" se utiliza para establecer el contexto inicial.  
+"When" se utiliza para describir la acción que se realiza.  
+"Then" se utiliza para describir las expectativas o resultados esperados después de la acción.
+
+Cambiar estos pasos afectará el flujo de la prueba y cómo se comunica el comportamiento esperado de la aplicación. 
+
 ### Desarrollar el escenario para adivinar una letra
-Ahora no solo haremos pruebas para cuando inicia , ahora prepararemos un escenario parwa cuando adivine una letra para eso utilizaremos el guess.feature   
+
+En esta etapa de desarrollo de nuestra aplicación, nos centraremos en el escenario en el que el usuario intenta adivinar una letra en un juego de ahorcado. Para llevar a cabo esta funcionalidad, utilizaremos el archivo `guess.feature.`
+
+
+
 
 ![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/1874de98-de08-4349-bae5-f58e37d5b443)  
 
-vemos que no pasan las pruebas , es porque aun no hemos modificado el guess en app.rb
-Modificamos app.rb 
+En la imagen podemos observar que las pruebas no pasaron debido a que aún no habíamos realizado modificaciones en la sección de "guess" en el archivo app.rb. Para solucionar esto, hemos realizado las siguientes modificaciones en el código:
 
 ![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/e431da64-1425-4814-af5f-0df8b4c96d6f)
 
-Ahora ejecutemos las pruebas :
+Después de realizar estas modificaciones, procedimos a ejecutar nuevamente las pruebas:
 
 ![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/7e373fb5-a981-4b7c-b622-84ef9834144a)
 
-Vemos que ahora si logra pasar las pruebas 
-
-
+Ahora, con las modificaciones realizadas en `app.rb`, observamos que las pruebas han tenido éxito y han pasado correctamente.
 
 
 ## Pregunta
 En game_steps.rb, mira el código del paso "I start a new game..." y, en particular, el comando stub_request. Dada la pista de que ese comando lo proporciona una gema (biblioteca) llamada webmock, ¿qué sucede con esa línea y por qué es necesaria? (Utiliza Google si es necesario).
+```ruby
+When /^I start a new game with word "(.*)"$/ do |word|
+  stub_request(:post, "http://randomword.saasbook.info/RandomWord").
+    to_return(:status => 200, :headers => {}, :body => word)
+  visit '/new'
+  click_button "New Game"
+end
+```
 
+La línea de código mencionada, utiliza la gema "webmock" para simular una solicitud HTTP POST a una URL que proporciona una palabra aleatoria. La simulación establece que la respuesta de la solicitud será la palabra que especificamos en el paso de prueba, en este caso **word**. Esto nos ayuda a hacer que nuestras pruebas sean más predecibles y controladas.
 
 ## Pregunta
 En tu código Sinatra para procesar una adivinación, ¿qué expresión usaría para extraer *solo el primer carácter* de lo que el usuario escribió en el campo de adivinación de letras del formulario en show.erb?
