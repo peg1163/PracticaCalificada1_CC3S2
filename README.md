@@ -551,7 +551,8 @@ end
 La línea de código mencionada, utiliza la gema "webmock" para simular una solicitud HTTP POST a una URL que proporciona una palabra aleatoria. La simulación establece que la respuesta de la solicitud será la palabra que especificamos en el paso de prueba, en este caso **word**. Esto nos ayuda a hacer que nuestras pruebas sean más predecibles y controladas.
 
 ## Pregunta
-En tu código Sinatra para procesar una adivinación, ¿qué expresión usaría para extraer *solo el primer carácter* de lo que el usuario escribió en el campo de adivinación de letras del formulario en show.erb?
+
+**En tu código Sinatra para procesar una adivinación, ¿qué expresión usaría para extraer *solo el primer carácter* de lo que el usuario escribió en el campo de adivinación de letras del formulario en show.erb?**
 
 
 
