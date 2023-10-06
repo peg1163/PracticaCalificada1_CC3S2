@@ -372,6 +372,20 @@ Se explora la necesidad de la acción `GET /new` en el contexto de una arquitect
 En una arquitectura orientada a servicios, los servicios web generalmente no necesitan una acción `GET /new` porque las interacciones se realizan programáticamente a través de API y no a través de interfaces web humanas. La acción `GET /new` es específica de una interfaz web para permitir que los usuarios inicien juegos manualmente.
 
 
+## CUCUMBER :
+
+Al ejecutar el comando cucumber features/start_new_game.feature vemos que la prueba no llega a pasar ya que necesitamos completar algunos atributos en el <form> : 
+
+![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/404a4e4e-b3ed-431c-b4b0-cda04b50c789)
+
+Agregando un atributo mas el cual es " action " , logra pasar el test 
+
+![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/891d9420-df8f-4f2f-871a-46805bc89268)
+
+
+
+
+
 
 
 
