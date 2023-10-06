@@ -371,6 +371,43 @@ Se explora la necesidad de la acción `GET /new` en el contexto de una arquitect
 
 En una arquitectura orientada a servicios, los servicios web generalmente no necesitan una acción `GET /new` porque las interacciones se realizan programáticamente a través de API y no a través de interfaces web humanas. La acción `GET /new` es específica de una interfaz web para permitir que los usuarios inicien juegos manualmente.
 
+# Parte 3 :Conexión de WordGuesserGame a Sinatra
+Teniendo algunos conceptos mas claros comenzaremos a hacer la conexion de la aplicacion con sinatra 
+
+## Pregunta 
+@game en este contexto es una variable de instancia de qué clase? 
+## Pregunta
+¿Por qué esto ahorra trabajo en comparación con simplemente almacenar esos mensajes en el hash de sesion []?
+### Ejecutando la aplicación Sinatra
+
+Anteriormente , pudimos subir una aplicacion sencilla con un hello world a  un puerto local , ahora lo que haremos es levantar la aplicacion wordguesser a un puerto local con ayuda de sinatra ;Usando el comando "bundle exec rerun -- rackup -port 3000":
+
+![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/b93c895a-4346-4b90-87c1-2840fc4277a6)
+
+## Pregunta
+Según el resultado de ejecutar este comando, ¿cuál es la URL completa que debes visitar para visitar la página New Game?
+Respuesta :Usando sinatra la aplicacion se despliega dentro de nuestro puerto local 3000 y para poder entrar en New Game tendriamos que usar el url del puerto añadiendo la direccion new : http://localhost:3000/new como se vio en la imagen anterior .
+
+
+Visita esta URL y verifica que aparezca la página Iniciar New Game
+
+![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/86d61d0d-2e57-4f69-81af-2363adad059c)
+
+¿Dónde está el código HTML de esta página?
+Respuesta: Cuando revisamos el codigo de app.rb vemos que cuando se ejecuta esta nos redirecciona a /new asi mismo este new contiene a new.erb  donde se encuentra el HTML
+
+Verifica que cuando haces clic en el botón New Game obtienes un error. Esto se debe a que deliberadamente dejamos incompleto el <form> que encierra este botón: no hemos especificado dónde debe publicarse el formulario
+Respuesta : Asi es , ya que si revisamos el HTML contenido en new.erb vemos que el form esta incompleto .
+
+![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/483fb5ef-a599-4af0-9f7a-2ffcfb79f88d)
+
+Haciendo que cuando demos click en new game nos de un error :
+
+![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/e73ad833-ad11-4145-840b-cfb8c1fc32fe)
+
+### Despliegue en Heroku :
+# Desarrollate ale :v
+
 
 # Parte 4 : Cucumber 
 
