@@ -565,39 +565,55 @@ La línea de código mencionada, utiliza la gema "webmock" para simular una soli
 
 **En tu código Sinatra para procesar una adivinación, ¿qué expresión usaría para extraer *solo el primer carácter* de lo que el usuario escribió en el campo de adivinación de letras del formulario en show.erb?**
 
+```ruby
+ post '/guess' do
+    begin
+      #obtine la primera letra de la palabra
+      letter = params[:guess].to_s[0]
+      #almacena las letras que se han adivinado
+      initial_guesses =@game.guesses
+```
 
+Para extraer solo el primer carácter de lo que el usuario escribió en el campo de adivinación de letras del formulario en show.erb en tu código Sinatra, usaría la siguiente expresión:
+
+```ruby
+letter = params[:guess].to_s[0]
+```
+Esta expresión obtiene el valor del parámetro guess, lo convierte en una cadena de caracteres (string) y luego accede al primer carácter de esa cadena.
 
 # Parte 5: Otros casos 
-Ahora , en el archivo feature vemos que hay mas pruebas que podemos ejecutar
+
+En el archivo de características (feature), podemos identificar varias pruebas adicionales que podemos llevar a cabo para una mejor cobertura.
 
 ![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/99e9aefc-aafa-4d15-95a4-940600796a19)
 
-y asi poder completar :
+Además, podemos expandir nuestra evaluación con los siguientes casos y completarlos.
+
+
 
 ![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/0b2e40d3-419d-4ab0-9eea-d3b3d0ec0957)
 
-Veamos el caso de show , la prueba para este es ceheating.feature , ejecutamos el comando con cucumber y nos da lo siguiente : 
+Ahora, centrémonos en el caso "show". La prueba correspondiente para este caso se encuentra en el archivo "ceheating.feature". Al ejecutar el comando con Cucumber, obtenemos el siguiente resultado: 
 
 ![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/1139af4d-c475-4945-b84a-15e36cb3ea69)
-vemos que tambien depende de win y lose asi que completamos codigo para win ,lose y show  
+
+Es relevante destacar que esta prueba también depende de "win" y "lose", por lo que debemos completar el código para estos casos:
 
 ![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/e799cab4-5eaa-4e7f-9d56-ac802b337d5a)
 
-Ejecutamos nuevamente las pruebas :
+Una vez que hemos finalizado la implementación del código, procedemos a ejecutar nuevamente las pruebas:
 
 ![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/053c74ae-7263-4dde-ad3a-4d214401ecac)
 
-Para win o lose , esta game_over.feature , cuando ejecutamos el test en este hay algunos que logran pasar el test , esto sucede porque no depende solo de win o lose sino tambien de guess , aqui es donde pasan las pruebas .(la imagen es antes de completar win y lose )
+En relación a "win" o "lose", encontramos el archivo `game_over.featur`. Cuando ejecutamos el test en este caso, observamos que algunos de ellos logran superar la prueba. Esto ocurre porque la prueba no se basa únicamente en "win" o "lose", sino también en "guess". Aquí es donde las pruebas resultan efectivas. (La imagen mostrada es previa a la implementación de "win" y "lose"):
 
 ![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/09117e80-5a3b-4f92-97e2-aadee13fd98c)
 
-Ejecutando las pruebas conm win y lose implementados :
-
+Finalmente, ejecutamos las pruebas con "win" y "lose" implementados:
 
 ![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/c13b55c5-8ba9-495c-b88e-16dd60b4c6b8)
 
-
-
+Esta ampliación de pruebas garantiza una evaluación más completa del sistema, considerando diferentes escenarios y condiciones de ejecución.
 
 
 
