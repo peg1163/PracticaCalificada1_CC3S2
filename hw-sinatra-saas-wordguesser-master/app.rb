@@ -38,9 +38,25 @@ class WordGuesserApp < Sinatra::Base
   # If a guess is repeated, set flash[:message] to "You have already used that letter."
   # If a guess is invalid, set flash[:message] to "Invalid guess."
   post '/guess' do
-    letter = params[:guess].to_s[0]
-    ### YOUR CODE HERE ###
-    redirect '/show'
+    begin
+      #obtine la primera letra de la palabra
+      letter = params[:guess].to_s[0]
+      #almacena las letras que se han adivinado
+      initial_guesses =@game.guesses
+      #revisa si la letra ha sido utilizada
+      if !@game.guess(letter)
+
+        flash[:message] = "You have already used that letter."
+        #revisa si la letra es invalida
+      elsif initial_guesses == @game.guesses
+        flash[:message] = "Invalid guess."
+      end
+      #captura el error para una suposicion invalida
+    rescue ArgumentError
+      flash[:message] = "Invalid guess."
+    end
+    #redirecciona a la pagina de show
+      redirect '/show'
   end
 
   # Everytime a guess is made, we should eventually end up at this route.
