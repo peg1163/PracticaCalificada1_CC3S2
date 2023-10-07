@@ -12,3 +12,4 @@ El informe en formato .md se encuentra en el siguiente link:
 https://github.com/peg1163/PracticaCalificada1_CC3S2/blob/main/PC1_Informe.md
 
 El informe en formato PDF se encuentra en el siguiente link:
+https://github.com/peg1163/PracticaCalificada1_CC3S2/blob/main/PC1_Informe.pdf
