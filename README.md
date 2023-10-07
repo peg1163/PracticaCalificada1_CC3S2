@@ -421,8 +421,19 @@ Este error es evidente cuando se intenta iniciar un nuevo juego, como se muestra
 ![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/e73ad833-ad11-4145-840b-cfb8c1fc32fe)
 
 ### Despliegue en Heroku :
-# Desarrollate ale :v
 
+Durante el proceso de implementación de nuestra aplicación en Heroku, nos encontramos con una dificultad inesperada. A pesar de que la aplicación funcionaba correctamente en nuestro entorno de desarrollo local, al intentar desplegarla en Heroku, nos encontramos con un error que resultó ser confuso y desafiante. Para investigar el problema con más detalle, utilizamos el comando heroku --tail para revisar los registros de la aplicación en Heroku, pero lamentablemente, no proporcionaron información esclarecedora.
+
+Después de realizar búsquedas en línea y consultar la documentación oficial de Heroku, seguimos varias soluciones recomendadas, pero ninguna de ellas logró resolver el problema que estábamos enfrentando. Ante la falta de avance y el tiempo limitado disponible, tomamos la decisión de continuar trabajando en el desarrollo de la aplicación en nuestro entorno de desarrollo local, posponiendo temporalmente el intento de desplegarla en Heroku.
+
+Aunque esta medida nos permitió avanzar con el proyecto y cumplir con los plazos establecidos, lamentablemente no pudimos aprovechar las ventajas de la plataforma de despliegue en la nube de Heroku en esta ocasión.
+
+A continuación se adjunto las capturas de los errores que nos mostraba tanto en el terminal como en heroku.
+
+![Alt text](Imagenes/p1.jpeg)
+![Alt text](Imagenes/p2.jpeg)
+![Alt text](Imagenes/p3.jpeg)
+![Alt text](Imagenes/p4.jpeg)
 
 # Parte 4 : Cucumber 
 
