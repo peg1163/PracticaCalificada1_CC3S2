@@ -565,6 +565,37 @@ y asi poder completar :
 
 ![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/0b2e40d3-419d-4ab0-9eea-d3b3d0ec0957)
 
+Veamos el caso de show , la prueba para este es ceheating.feature , ejecutamos el comando con cucumber y nos da lo siguiente : 
+
+![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/1139af4d-c475-4945-b84a-15e36cb3ea69)
+vemos que tambien depende de win y lose asi que completamos codigo para win ,lose y show  
+
+![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/e799cab4-5eaa-4e7f-9d56-ac802b337d5a)
+
+Ejecutamos nuevamente las pruebas :
+
+![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/053c74ae-7263-4dde-ad3a-4d214401ecac)
+
+Para win o lose , esta game_over.feature , cuando ejecutamos el test en este hay algunos que logran pasar el test , esto sucede porque no depende solo de win o lose sino tambien de guess , aqui es donde pasan las pruebas .(la imagen es antes de completar win y lose )
+
+![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/09117e80-5a3b-4f92-97e2-aadee13fd98c)
+
+Ejecutando las pruebas conm win y lose implementados :
+
+
+![image](https://github.com/peg1163/PracticaCalificada1_CC3S2/assets/92898224/c13b55c5-8ba9-495c-b88e-16dd60b4c6b8)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
